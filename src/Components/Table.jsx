@@ -16,7 +16,8 @@ import {
   } from '@chakra-ui/react'
 
 const SortTable = () => {
-    const [data,setData]=useState()
+    const [data,setData]=useState();
+   const [render,setRender]=useState(); 
 const fetchData = async () => {
     try{
         const response = await fetch("http://localhost:8080/user")
@@ -30,14 +31,44 @@ const fetchData = async () => {
     useEffect(()=>{
         fetchData()
     },[])
+    const allData=()=>{
+         setRender(data)
+    }
+    const priceData=()=>{
+    const res=  data.filter(function(x){ return Number(x.phone_price>10000)})
+      setRender(res)
+      console.log(res)
+    }
+    const lowIncomeData=()=>{
+      
+    }
+
+    const startMData=()=>{
+      
+    }
+
+    const carBrandData=()=>{
+      
+    }
+
+    const cityData=()=>{
+      
+    }
+
   return (
     
     <div className='box'>
-    <Button>ALL</Button>
+    <Button  colorScheme='teal' size='sm' m={5} onClick={()=>allData()}>ALL DATA</Button>
+    <Button  colorScheme='teal' size='sm' m={5} onClick={()=>lowIncomeData()}>LOWER INCOME</Button>
+    <Button  colorScheme='teal' size='sm' m={5} onClick={()=>priceData()}>PHONE PRICE&gt;10000</Button>
+    <Button  colorScheme='teal' size='sm' m={5} onClick={()=>startMData()}>START M</Button>
+    <Button  colorScheme='teal' size='sm' m={5} onClick={()=>carBrandData()}>BMW,MERCEDES,AUDI</Button>
+    <Button  colorScheme='teal' size='sm' m={5} onClick={()=>cityData()}>TOP 10 CITY</Button>
+
      <Box>
      <TableContainer >
   <Table variant='striped' colorScheme='blue' size='sm' fontSize="xs">
-    <TableCaption>Imperial to metric conversion factors</TableCaption>
+    <TableCaption>Created By VAIBHAV MORE</TableCaption>
     <Thead>
       <Tr>
         <Th fontSize="xs">ID</Th>
@@ -53,8 +84,7 @@ const fetchData = async () => {
       </Tr>
     </Thead>
     <Tbody>
-        {data?.map((d)=>(
-
+        {render?.map((d)=>(
                 <Tr key={d.id}>
                 <Td fontSize="xs">{d.id}</Td>
                 <Td fontSize="xs">{d.first_name}</Td>
@@ -68,19 +98,10 @@ const fetchData = async () => {
                 <Td fontSize="xs">{d.phone_price}</Td>
               </Tr>
         ))}
-
-            
-            
-            
-       
-     
-      
     </Tbody>
     <Tfoot>
       <Tr>
-        <Th>To convert</Th>
-        <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
+        <Th></Th>
       </Tr>
     </Tfoot>
   </Table>
