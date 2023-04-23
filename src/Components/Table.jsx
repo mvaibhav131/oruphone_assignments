@@ -40,7 +40,8 @@ const fetchData = async () => {
       console.log(res)
     }
     const lowIncomeData=()=>{
-      
+      const income= data.filter(function(x){ return Number(parseInt(x.income))*82.04 <400})
+      console.log(income)
     }
 
     const startMData=()=>{
