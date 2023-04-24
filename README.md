@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with clone the above repository
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ Run `npm install` to install dep.
 
 ## steps 
 
@@ -16,6 +16,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 your screen shows the table and diffrent filter button.
 
 when you click the button 
-Accordding to the operation data will be render in table and showing it.
+According to the operation data will be render in table and showing it.
 
 ## Thanks !...
