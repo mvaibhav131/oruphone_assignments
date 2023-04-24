@@ -24,7 +24,7 @@ const SortTable = () => {
       const response = await fetch("http://localhost:8080/user");
       const data = await response.json();
       setData(data);
-      console.log(data);
+      // console.log(data);
     } catch (e) {
       console.error(e);
     }
@@ -45,7 +45,7 @@ const SortTable = () => {
       );
     });
     setRender(income);
-    console.log(income);
+    // console.log(income);
   };
 
   //Male Users which have phone price greater than 10,000.
@@ -54,7 +54,7 @@ const SortTable = () => {
       return x.gender === "Male" && Number(x.phone_price > 10000);
     });
     setRender(res);
-    console.log(res);
+    // console.log(res);
   };
 
   //Users whose last name starts with “M” and has a quote character length greater than 15 and email includes his/her last name
@@ -67,7 +67,7 @@ const SortTable = () => {
       );
     });
     setRender(mStart);
-    console.log(mStart);
+    // console.log(mStart);
   };
 
   // Users which have a car of brand “BMW”, “Mercedes” or “Audi” and whose email does not include any digit.
@@ -80,7 +80,7 @@ const SortTable = () => {
       );
     });
     setRender(carBrand);
-    console.log(carBrand);
+    // console.log(carBrand);
   };
 
   //Show the data of top 10 cities which have the highest number of users and their average income.
@@ -89,13 +89,13 @@ const SortTable = () => {
     data.filter(function (e) {
       return city.push(e.city);
     });
-    console.log(city);
+    // console.log(city);
 
     const cityList = city.reduce(function (acc, curr) {
       // eslint-disable-next-line
       return acc[curr] ? ++acc[curr] : (acc[curr] = 1), acc;
     }, {});
-    console.log(cityList);
+    // console.log(cityList);
 
     const sortCity = Object.values(cityList).sort(function (a, b) {
       return b - a;
